@@ -112,7 +112,7 @@ WebServer server(80);
 DynamicJsonDocument doc_can_config(16384);
 DynamicJsonDocument doc_can(4400);
 
-DynamicJsonDocument doc_sensors(5400);
+DynamicJsonDocument doc_sensors(5800);
 
 //DynamicJsonDocument doc_active_i2c_devs(256);
 String can_messages = "";
@@ -184,7 +184,7 @@ void get_parameters() {
   interval = preferences.getFloat("logspeed_data", 5);
   interval_can = preferences.getFloat("logspeed_can", 5);
   upd_interval = preferences.getFloat("updInterval", 0);
-
+  FirmwareVer = preferences.getString("sw_version","1.0");
   String selected_i2c_devices = preferences.getString("i2c", "");
   DeserializationError error = deserializeJson(doc_active_i2c_devs, selected_i2c_devices);
   if (!error) i2c = doc_active_i2c_devs.to<JsonObject>();
@@ -838,14 +838,8 @@ void data_timer_callback() {
   doc_sensors["node"] = deviceName;
   //doc["mac"] = WiFi.macAddress();
   //doc["rssi"] = WiFi.RSSI();
-  doc_can.shrinkToFit();
-  doc_sensors["CAN"] = doc_can;
-  
-   
-    ambient_absh = doc_sensors["ambient"]["absh"];
-    ambient_rh = doc_sensors["ambient"]["rh"];
-    ambient_t = doc_sensors["ambient"]["t"];
-    ambient_p = doc_sensors["ambient"]["p"];
+  //doc_can.shrinkToFit();
+  //doc_sensors["CAN"] = doc_can;
 
   //doc["ip"] = ip.toString();
   //doc["date"] = date;
@@ -867,7 +861,7 @@ void can_timer_callback() {
   Serial.println();
   String temp_can_msg = "";
   status = "publish can";
-
+  doc_can["node"] = deviceName;
   serializeJson(doc_can, temp_can_msg);
   String request_can = String("POST ") + azure_endpoint.c_str() + " HTTP/1.1\r\n" + "Host: " + azure_host.c_str() + "\r\n" + "Authorization: SharedAccessSignature " + fullSas + "\r\n" + "Content-Type: application/atom+xml;type=entry;charset=utf-8\r\n" + "Content-Length: " + temp_can_msg.length() + "\r\n\r\n" + temp_can_msg;
   Serial.println(temp_can_msg);

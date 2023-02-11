@@ -12,8 +12,9 @@
 ADS1115 ADS1(0x4b);
 ADS1115 ADS2(0x49);
 #define R1 100.0f
-#define R2 5.8f
-#define f R2 / (R1 + R2)
+#define R2 5.6f
+//#define f R2 / (R1 + R2)
+float f = 0.053030;
 PCA9555 ioport;
 void setup_adc() {
 
@@ -33,14 +34,14 @@ void setup_digitals() {
 }
 void get_adc() {
 #ifdef SIMULATION
-  doc_sensors["analog"]["A1"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A2"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A3"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A4"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A5"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A6"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A7"] = random(0, 3300) * 0.001 * f;
-  doc_sensors["analog"]["A8"] = random(0, 3300) * 0.001 * f;
+  doc_sensors["analog"]["A1"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A2"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A3"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A4"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A5"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A6"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A7"] = random(0, 3300) * 0.001 / f;
+  doc_sensors["analog"]["A8"] = random(0, 3300) * 0.001 / f;
 
 
 
@@ -54,17 +55,16 @@ void get_adc() {
   int16_t raw5 = ADS2.readADC(1);
   int16_t raw6 = ADS2.readADC(2);
   int16_t raw7 = ADS2.readADC(3);
-  doc_sensors["analog"]["A1"] = serialized(String(ADS1.toVoltage(raw0) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A2"] = serialized(String(ADS1.toVoltage(raw1) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A3"] = serialized(String(ADS1.toVoltage(raw2) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A4"] = serialized(String(ADS1.toVoltage(raw3) * f,MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A1"] = serialized(String(ADS1.toVoltage(raw0) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A2"] = serialized(String(ADS1.toVoltage(raw1) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A3"] = serialized(String(ADS1.toVoltage(raw2) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A4"] = serialized(String(ADS1.toVoltage(raw3) / f, MAX_DECIMAL_PLACES_ANALOG));
 
-  doc_sensors["analog"]["A5"] = serialized(String(ADS2.toVoltage(raw4) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A6"] = serialized(String(ADS2.toVoltage(raw5) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A7"] = serialized(String(ADS2.toVoltage(raw6) * f,MAX_DECIMAL_PLACES_ANALOG));
-  doc_sensors["analog"]["A8"] = serialized(String(ADS2.toVoltage(raw7) * f,MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A5"] = serialized(String(ADS2.toVoltage(raw4) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A6"] = serialized(String(ADS2.toVoltage(raw5) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A7"] = serialized(String(ADS2.toVoltage(raw6) / f, MAX_DECIMAL_PLACES_ANALOG));
+  doc_sensors["analog"]["A8"] = serialized(String(ADS2.toVoltage(raw7) / f, MAX_DECIMAL_PLACES_ANALOG));
 #endif
-  
 }
 
 void get_digitals() {

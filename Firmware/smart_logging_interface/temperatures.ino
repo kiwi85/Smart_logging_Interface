@@ -77,6 +77,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[0] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[0] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[0] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC1");
   } else {
     if (tc1) doc_sensors["temperatures"]["TC1"] = c1;
     NC[0] = 0;
@@ -91,6 +92,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[1] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[1] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[1] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC2");
   } else {
     if (tc2) doc_sensors["temperatures"]["TC2"] = c2;
     NC[1] = 0;
@@ -105,6 +107,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[2] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[2] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[2] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC3");
   } else {
     if (tc3) doc_sensors["temperatures"]["TC3"] = c3;
     NC[2] = 0;
@@ -119,6 +122,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[3] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[3] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[3] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC4");
   } else {
     if (tc4) doc_sensors["temperatures"]["TC4"] = c4;
     NC[3] = 0;
@@ -133,6 +137,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[4] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[4] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[4] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC5");
   } else {
     if (tc5) doc_sensors["temperatures"]["TC5"] = c5;
     NC[4] = 0;
@@ -147,6 +152,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[5] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[5] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[5] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC6");
   } else {
     if (tc6) doc_sensors["temperatures"]["TC6"] = c6;
     NC[5] = 0;
@@ -161,6 +167,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[6] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[6] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[6] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC7");
   } else {
     if (tc7) doc_sensors["temperatures"]["TC7"] = c7;
     NC[6] = 0;
@@ -175,6 +182,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[7] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[7] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[7] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC8");
   } else {
     if (tc8) doc_sensors["temperatures"]["TC8"] = c8;
     NC[7] = 0;
@@ -189,6 +197,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[8] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[8] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[8] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC9");
   } else {
     if (tc9) doc_sensors["temperatures"]["TC9"] = c9;
     NC[8] = 0;
@@ -203,6 +212,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[9] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[9] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[9] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC10");
   } else {
     if (tc10) doc_sensors["temperatures"]["TC10"] = c10;
     NC[9] = 0;
@@ -217,6 +227,7 @@ void get_temperatures() {
     if (e & MAX31855_FAULT_OPEN) NC[10] = 1;        //Serial.println("FAULT: Thermocouple is open - no connections.");
     if (e & MAX31855_FAULT_SHORT_GND) SCG[10] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to GND.");
     if (e & MAX31855_FAULT_SHORT_VCC) SCP[10] = 1;  // Serial.println("FAULT: Thermocouple is short-circuited to VCC.");
+    doc_sensors["temperatures"].remove("TC11");
   } else {
     if (tc11) doc_sensors["temperatures"]["TC11"] = c11;
     NC[10] = 0;
