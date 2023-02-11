@@ -71,8 +71,8 @@ int recv_ct = 0;
 String FirmwareVer = {
   "1.0"
 };
-#define URL_fw_Version "https://raw.githubusercontent.com/kiwi85/smartdatalogger/main/SLI_Azure_ESP32/build/esp32.esp32.esp32/version.txt"
-#define URL_fw_Bin "https://raw.githubusercontent.com/kiwi85/smartdatalogger/main/SLI_Azure_ESP32/build/esp32.esp32.esp32/Iforce_AU_Azure_ESP32.ino.bin"
+#define URL_fw_Version "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/version.txt"
+#define URL_fw_Bin "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/smart_logging_interface.ino.bin"
 #define SCREEN_WIDTH 128  // OLED display width, in pixels
 #define SCREEN_HEIGHT 64  // OLED display height, in pixels
 
