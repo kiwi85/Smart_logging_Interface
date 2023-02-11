@@ -1,0 +1,1383 @@
+{
+  "Config": {
+    "Build": {
+      "Board": "arduino:avr:nano:cpu=atmega328"
+    }
+  },
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Content": "OpenWire Diagram",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 1312,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoAnalogOptionalAsDigitalInputChannel"
+                },
+                {
+                  "+": "TArduinoAnalogOptionalAsDigitalInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                },
+                {
+                  "+": "TArduinoProcessor328Module"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "RequestOutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MakeStructure1.ClockInputPin"
+                      }
+                    ]
+                  },
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MakeStructure1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer1.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer2.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer3.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer4.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer5.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer6.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer7.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer8.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer9.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer10.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer11.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer12.ChipSelectOutputPin"
+                    }
+                  },
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer1.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer2.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer3.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer4.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer5.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer6.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer7.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer8.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer9.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer10.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer11.ControlOutputPin"
+                      },
+                      {
+                        "ID": "__OpenWireRootUnit__.Thermometer12.ControlOutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Nano"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item0.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [0]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin0"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [0]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin0"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [0]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin0"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[2].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item2.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 352
+        },
+        {
+          "X": 640,
+          "Name": "not_connected",
+          "Instance": {
+            "InputPins": {
+              "Pins": [
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer1.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer2.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer3.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer4.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer5.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer6.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer7.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer8.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer9.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer10.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer11.NotConnectedOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer12.NotConnectedOutputPin"
+                  }
+                }
+              ],
+              "Count": 12,
+              "Form": "__OpenWireRootUnit__"
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Integer 16bit.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item12.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDigitalsToUnsigned"
+          },
+          "Type": "Component",
+          "Y": 1104
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer2",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item1.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [1]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin1"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [1]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin1"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [1]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin1"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[3].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item3.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 496
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer3",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item2.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [2]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin2"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [2]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin2"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [2]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin2"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[4].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item4.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 640
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer4",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item3.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [3]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin3"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [3]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin3"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [3]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin3"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[5].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item5.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 784
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer5",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item4.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [4]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin4"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [4]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin4"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [4]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin4"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[6].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item6.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 928
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer6",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item5.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [5]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin5"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [5]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin5"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [5]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin5"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[7].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item7.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1072
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer7",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item6.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [6]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin6"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [6]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin6"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [6]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin6"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[8].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item8.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1216
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer8",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item7.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [7]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin7"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [7]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin7"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [7]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin7"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[9].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item9.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1360
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer9",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item8.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [8]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin8"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [8]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin8"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [8]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin8"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[14].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item14.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1504
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer10",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item9.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [9]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin9"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [9]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin9"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [9]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin9"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[15].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item15.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1648
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer11",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item10.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [10]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin10"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [10]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin10"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [10]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin10"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[16].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item16.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1792
+        },
+        {
+          "X": 256,
+          "Name": "Thermometer12",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Analog.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item11.InputPin"
+                }
+              ]
+            },
+            "NotConnectedOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.not_connected.InputPins.Pin [11]",
+                  "ID": "__OpenWireRootUnit__.not_connected.InputPins._Pin11"
+                }
+              ]
+            },
+            "+": "TArduinoThermocoupleMAX31855",
+            "ShortToGroundOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_G.InputPins.Pin [11]",
+                  "ID": "__OpenWireRootUnit__.short_to_G.InputPins._Pin11"
+                }
+              ]
+            },
+            "ControlOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.SPIChannels.SPI.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.SPIChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "ShortToPowerOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.short_to_P.InputPins.Pin [11]",
+                  "ID": "__OpenWireRootUnit__.short_to_P.InputPins._Pin11"
+                }
+              ]
+            },
+            "ChipSelectOutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Digital[17].DigitalInputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Digital._Item17.DigitalInputPin"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 1936
+        },
+        {
+          "X": 944,
+          "Name": "MakeStructure1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.I2CChannels[0].RequestOutputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.I2CChannels._Item0.RequestOutputPin"
+                }
+              ]
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.I2CChannels.I2C.InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.I2CChannels._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoMakeStructure",
+            "Elements": {
+              "*": [
+                {
+                  "Name": "Analog1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog2",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer2.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog3",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer3.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog4",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer4.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog5",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer5.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog6",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer6.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog7",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer7.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog8",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer8.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog9",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer9.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog10",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer10.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog11",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer11.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Analog12",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Thermometer12.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogMakeStructureElement"
+                },
+                {
+                  "Name": "Status_not_connected",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.not_connected.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoInteger16MakeStructureElement"
+                },
+                {
+                  "Name": "Status_short_to_P",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.short_to_P.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoInteger16MakeStructureElement"
+                },
+                {
+                  "Name": "Status_short_to_G",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.short_to_G.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoInteger16MakeStructureElement"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 688
+        },
+        {
+          "X": 640,
+          "Name": "short_to_P",
+          "Instance": {
+            "InputPins": {
+              "Pins": [
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer1.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer2.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer3.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer4.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer5.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer6.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer7.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer8.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer9.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer10.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer11.ShortToPowerOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer12.ShortToPowerOutputPin"
+                  }
+                }
+              ],
+              "Count": 12,
+              "Form": "__OpenWireRootUnit__"
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Integer 16bit.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item13.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDigitalsToUnsigned"
+          },
+          "Type": "Component",
+          "Y": 1344
+        },
+        {
+          "X": 640,
+          "Name": "short_to_G",
+          "Instance": {
+            "InputPins": {
+              "Pins": [
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer1.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer2.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer3.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer4.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer5.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer6.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer7.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer8.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer9.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer10.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer11.ShortToGroundOutputPin"
+                  }
+                },
+                {
+                  "Type": "ptSink",
+                  "SourcePin": {
+                    "ID": "__OpenWireRootUnit__.Thermometer12.ShortToGroundOutputPin"
+                  }
+                }
+              ],
+              "Count": 12,
+              "Form": "__OpenWireRootUnit__"
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.MakeStructure1.Elements.Integer 16bit.InputPin",
+                  "ID": "__OpenWireRootUnit__.MakeStructure1.Elements._Item14.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDigitalsToUnsigned"
+          },
+          "Type": "Component",
+          "Y": 1584
+        }
+      ]
+    }
+  ]
+}
