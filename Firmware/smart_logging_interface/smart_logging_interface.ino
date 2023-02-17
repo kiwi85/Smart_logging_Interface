@@ -69,7 +69,7 @@ int recv_ct = 0;
 //#include <CAN_config.h>
 #include <EasyButton.h>
 String FirmwareVer = {
-  "1.0.0"
+  "1.0"
 };
 #define URL_fw_Version "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/version.txt"
 #define URL_fw_Bin "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/smart_logging_interface.ino.bin"
