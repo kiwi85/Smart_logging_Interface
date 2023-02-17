@@ -937,7 +937,7 @@ int FirmwareVersionCheck(void) {
       return 0;
     } else {
       Serial.println(payload);
-      preferences.begin("Iforce", false);
+      preferences.begin("SLI", false);
       preferences.putString("sw_version", payload);
       preferences.end();
       Serial.println("New firmware detected");
