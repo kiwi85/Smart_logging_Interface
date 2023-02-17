@@ -69,7 +69,7 @@ int recv_ct = 0;
 //#include <CAN_config.h>
 #include <EasyButton.h>
 String FirmwareVer = {
-  "1.0"
+  "1.0.0"
 };
 #define URL_fw_Version "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/version.txt"
 #define URL_fw_Bin "https://raw.githubusercontent.com/kiwi85/Smart_logging_Interface/main/Firmware/smart_logging_interface/build/esp32.esp32.esp32/smart_logging_interface.ino.bin"
@@ -144,7 +144,7 @@ String mac;
 int rssi;
 // TEST OPTION FLAGS
 bool wm_nonblocking = false;
-String deviceName = "SLI-";
+String deviceName = "SDL-";
 String json = "";
 String config_json = "";
 String time_stamp;
@@ -1057,7 +1057,7 @@ void setup() {
   client.setInsecure();
   WiFi.mode(WIFI_STA);  // explicitly set mode, esp defaults to STA+AP
   wm.setHostname(deviceName.c_str());
-  wm.setTitle("Smart Logging Interface");
+  wm.setTitle("Smart Data Logger "+FirmwareVer);
 
   WiFi.setHostname(deviceName.c_str());
   //wm.setEnableConfigPortal(false);
@@ -1147,7 +1147,7 @@ void setup() {
   // START: Create SAS
   // https://azure.microsoft.com/en-us/documentation/articles/service-bus-sas-overview/
   // Where to get secods since the epoch: local service, SNTP, RTC
-  int expire = 1711104241;
+  int expire = 1771338232; //until 2024
   String stringToSign = url + "\n" + expire;
   // START: Create signature
   Sha256.initHmac((const uint8_t *)azure_key.c_str(), 44);
@@ -1305,6 +1305,7 @@ void loop() {
   get_temperatures();
   get_env_sensors();
   get_vcp_sensors();
+  get_StrainSensorData();
 
   /* end get sensor data */
 
