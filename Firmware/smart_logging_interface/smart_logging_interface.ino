@@ -31,25 +31,13 @@
 #include "cert.h"
 #include <stdio.h>
 #include <WiFi.h>
-#include <SPI.h>
-#include <FS.h>
-#include "SD.h"
+
 #include "oled_bitmaps.h"
 #include "i2c_dev_definitions.h"
 
-
-SPIClass sdSPI(VSPI);
-#define SD_MISO 19
-#define SD_MOSI 23
-#define SD_SCLK 18
-#define SD_CS 0  //for final board
-
-#define MAX_FILE_NAME_LEN 100
-#define MAX_STR_LEN 500
-#define DATABASE_NAME "/sd/data.db"
 #define DATA_BUF 10
 #define MAX_I2C_ADR 10
-#define buffersize 3000
+#define buffersize 29000
 #define buffersize_i2c 1000
 #include <ESP32CAN.h>
 #include <CAN_config.h>
@@ -62,9 +50,7 @@ int recv_ct = 0;
 #include <ArduinoJson.h>
 
 #include <Preferences.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-#include <sqlite3.h>
+
 //#include <ESP32CAN.h>
 //#include <CAN_config.h>
 #include <EasyButton.h>
@@ -115,6 +101,7 @@ DynamicJsonDocument doc_can(4400);
 DynamicJsonDocument doc_sensors(5800);
 
 //DynamicJsonDocument doc_active_i2c_devs(256);
+String JSON_data;
 String can_messages = "";
 int can_ids[CAN_ID_ARR_SIZE];
 int id_counter = 0;
@@ -435,6 +422,9 @@ char *get_option_string() {
   else strncat(buf, "<option value='86400'>24 hours</option>", buffersize - strlen(buf));
   if (upd_interval == 0) strncat(buf, "<option value='0' selected>never</option></select>", buffersize - strlen(buf));
   else strncat(buf, "<option value='0'>never</option></select>", buffersize - strlen(buf));
+  strncat(buf,"<hr /><textarea name='can_config' id='can_config' placeholder='paste your can_config_json String here' cols='36' rows='15'></textarea>",buffersize - strlen(buf));
+  //strncat(buf,JSON_data.c_str(),buffersize-strlen(buf));
+  //strncat(buf,"</textarea>",buffersize-strlen(buf));
   return buf;
 }
 void saveParamCallback() {
@@ -487,6 +477,8 @@ void saveParamCallback() {
   interval_can = preferences.getFloat("logspeed_data", 5);
   upd_interval = preferences.getFloat("updInterval", 60);
   preferences.end();
+  String can_config_web =  getParam("can_config");
+  if(can_config_web.length()>0)save_can_config_to_sql(can_config_web);
   status = "saved settings";
   oled_draw_text(status);
   get_parameters();
@@ -519,34 +511,13 @@ void handleNotFound() {
 }
 
 void handleRoot() {
-  loadFromSD("/data.db");
+  //
 }
 
 
-bool loadFromSD(String path) {
-  String dataType = "application/octet-stream";
-
-  Serial.print("Requested page -> ");
-  Serial.println(path);
-  Serial.println("[HTTP] handle route");
-  File dataFile = SD.open(path, FILE_READ);  // Now read data from SD Card
-  if (dataFile) {
-    if (server.streamFile(dataFile, dataType) != dataFile.size()) {
-      Serial.println("Sent less data than expected!");
-    } else {
-      Serial.println("Page served!");
-    }
-
-    dataFile.close();  // close the file:
-  } else {
-    handleNotFound();
-    return false;
-  }
-  return true;
-}
 void handleRoute_wm() {
   Serial.println("[HTTP] handle route");
-  loadFromSD("/data.db");
+  //loadFromSD("/data.db");
   wm.server->send(200, "text/plain", "hello from wm");
 }
 
@@ -601,153 +572,6 @@ void on_pressed_button_config_reset() {
   wm.resetSettings();
   delay(3000);
   ESP.restart();
-}
-
-/**
-* defines and declarations for database
-*/
-sqlite3 *db1 = NULL;
-sqlite3_stmt *res;
-
-//char sql[1024];
-int rc;
-const char *tail;
-String JSON_data;
-String json_can_config = "";
-int counter_callback, code = -1;
-
-
-int open_db() {
-  if (db1 != NULL)
-    sqlite3_close(db1);
-  int rc = sqlite3_open(DATABASE_NAME, &db1);
-  if (rc) {
-    Serial.print(F("Can't open database: "));
-    status = "can't open database";
-    Serial.print(sqlite3_extended_errcode(db1));
-    Serial.print(" ");
-    Serial.println(sqlite3_errmsg(db1));
-    return rc;
-  } else
-    //Serial.println(F("Opened database successfully"));
-    //status = "database open";
-    //display_heap();
-    return rc;
-}
-/**
-db_enquery for retrieving data from DB.
-
-@param String enquery.
-@return none.
-*/
-void db_enquery(String enquery, bool should_print) {
-
-  open_db();
-  JSON_data = "";
-
-
-  //db_open();
-
-  //Serial.println("Begin query");
-  status = "database query";
-  //display_heap();
-  code = db_exec(enquery.c_str(), should_print);
-
-
-  counter_callback = 0;
-  sqlite3_close(db1);
-}
-
-/**
-Callback function for db enqueries.
-
-@param data, argc,argv,azColName.
-@return 0.
-*/
-static int callback(void *daten, int argc, char **argv, char **azColName) {
-  int i;
-  //const int json_size = JSON_OBJECT_SIZE(MAX_ROWS);
-  JsonArray *row_array = (JsonArray *)daten;
-  DynamicJsonDocument doc(6400);
-
-  JsonObject sub = doc.createNestedObject();
-
-  for (i = 0; i < argc; i++) {
-
-    sub[azColName[i]] = String(argv[i]);
-  }
-
-  (*row_array).add(sub);
-  counter_callback++;
-  //Serial.printf("\n");
-  doc.clear();
-  doc.garbageCollect();
-  return 0;
-}
-
-
-char *zErrMsg = 0;
-/**
-db_exec.
-
-execute db enquery.
-
-@param sql.
-@return rc.
-*/
-int db_exec(const char *sql, bool should_print) {
-  if (db1 == NULL) {
-    Serial.println("No database open");
-    status = "No database open";
-    return 0;
-  }
-
-
-
-  DynamicJsonDocument doc(12400);
-
-
-  JsonArray daten = doc.createNestedArray("response");
-
-  //Serial.println(sql);
-  long start = micros();
-  counter_callback = 0;
-  //display_heap();
-  int rc = sqlite3_exec(db1, sql, callback, &daten, &zErrMsg);
-  //display_heap();
-  doc["code"] = code;  //rc;
-  if (counter_callback == 1) {
-    doc.remove("response");
-    doc["response"] = daten[0];
-    daten.remove(0);
-  }
-
-  if (rc != SQLITE_OK) {
-    Serial.printf("SQL error: %s\n", zErrMsg);
-    sqlite3_free(zErrMsg);
-    //sqlite3_close(db1);
-  } else {
-    //Serial.printf("Operation done successfully\n");
-    //Serial.printf("there are %d rows for this enquery\r\n", counter_callback);
-    serializeJson(doc, JSON_data);
-    if (should_print) {
-      serializeJson(doc, Serial);
-      Serial.println();
-      Serial.printf("Time taken: %d rows: %d\n", (micros() - start) / 1000, counter_callback);
-    }
-  }
-  doc.clear();
-  doc.garbageCollect();
-
-  return rc;
-}
-
-void displayFreeHeap() {
-  Serial.printf("\nHeap size: %d\n", ESP.getHeapSize());
-  Serial.printf("Free Heap: %d\n", esp_get_free_heap_size());
-  Serial.printf("Min Free Heap: %d\n", esp_get_minimum_free_heap_size());
-  Serial.printf("Max Alloc Heap: %d\n", ESP.getMaxAllocHeap());
-  status = "Free Heap:" + String(esp_get_free_heap_size());
 }
 
 
@@ -1005,49 +829,14 @@ void setup() {
   deviceName += String(chipId);
 
   Serial.begin(115200);
-  Serial.setRxBufferSize(2048);
+  //Serial.setRxBufferSize(2048);
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
     Serial.println(F("SSD1306 allocation failed"));
     for (;;)
       ;  // Don't proceed, loop forever
   }
   oled_drawbitmap();
-  //sdSPI.begin(SD_SCLK, SD_MISO, SD_MOSI, SD_CS);
-  //sdSPI.setFrequency(1000000);
-  //sdSPI.begin();
-  sdSPI.begin(SD_SCLK, SD_MISO, SD_MOSI, SD_CS);
-  if (!SD.begin(SD_CS, sdSPI)) {
-    Serial.println(" Memory card mount failed ");
-    status = "Card mount failed";
-    while (true) {
-    }
-    //return;
-  }
-  uint8_t cardType = SD.cardType();
-
-  if (cardType == CARD_NONE) {
-
-    Serial.println(" No memory card connected ");
-    status = "No memory card";
-    return;
-  } else if (cardType == CARD_MMC) {
-
-    Serial.println(" Mounted MMC card ");
-  } else if (cardType == CARD_SD) {
-
-    Serial.println(" Mounted SDSC card ");
-    status = "Mounted SDSC card";
-  } else if (cardType == CARD_SDHC) {
-
-    Serial.println(" Mounted SDHC card ");
-    status = "Mounted SDHC card";
-  } else {
-
-    Serial.println(" An unknown memory card is mounted ");
-  }
-
-  sqlite3_initialize();
-
+  setup_sd_db();
 
 
   Serial.setDebugOutput(false);
@@ -1057,7 +846,7 @@ void setup() {
   client.setInsecure();
   WiFi.mode(WIFI_STA);  // explicitly set mode, esp defaults to STA+AP
   wm.setHostname(deviceName.c_str());
-  wm.setTitle("Smart Data Logger "+FirmwareVer);
+  
 
   WiFi.setHostname(deviceName.c_str());
   //wm.setEnableConfigPortal(false);
@@ -1075,6 +864,7 @@ void setup() {
   wm.setSaveConfigCallback(saveWifiCallback);
   wm.setSaveParamsCallback(saveParamCallback);
   get_parameters();
+  wm.setTitle("Smart Data Logger "+FirmwareVer);
   // add all your parameters here
   wm.addParameter(&custom_azure_host);
   wm.addParameter(&custom_azure_endpoint);

@@ -15,6 +15,9 @@ void get_StrainSensorData() {
   //Serial.print("S1: "+String(strain.S1,3));
   //Serial.print(" S2: "+String(strain.S2,3));
   //Serial.println(" S3: "+String(strain.S3,3));
+  doc_sensors["strain"]["S1"] = strain.S1;
+  doc_sensors["strain"]["S2"] = strain.S2;
+  doc_sensors["strain"]["S3"] = strain.S3;
 }
 
 
